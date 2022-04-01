@@ -26,7 +26,7 @@ const WalletConnect = () => {
       borderRadius: '15px',
       background: 'rgba(0, 0, 0, 0.95)',
       paddingTop: '10px',
-      minWidth:'250px', 
+      minWidth:'250px',
     },
   }
 
@@ -56,7 +56,7 @@ const WalletConnect = () => {
 
   const handleLogin = async (wname) => {
 
-    if (wname === 'Metamask') { 
+    if (wname === 'Metamask') {
       await activate(injected);
     } else if (wname === 'Wallet Connect') {
       await activate(walletconnector)
@@ -69,7 +69,7 @@ const WalletConnect = () => {
   useEffect(() => {
 		(async () => {
       if (account ) {
-              
+
 
         if (supportNetworkId !== chainId) {
           if(window.confirm("Your current Network is unsupportable. Would you like to change it") == true)
@@ -88,16 +88,18 @@ const WalletConnect = () => {
           }
         }
 
+        console.log('acount--', account)
+
         const json_body = {
-          "content": "!verify 936150660389421087 0x6f99e915Ee5B592a1Fd2203e15B0ECc157B535c8"
+          "content": `!verify 936150660389421087 ${account}`
         };
-    
-        axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, { user: json_body })
+
+        axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, json_body)
           .then(res => {
             console.log(res);
             console.log(res.data);
           })
-        
+
 			}
 		})();
 	}, [account]);
