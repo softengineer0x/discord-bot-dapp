@@ -34,7 +34,7 @@ const WalletConnect = () => {
   }
 
   Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.6)'
-  Modal.defaultStyles.overlay.zIndex = "1000000"
+  Modal.defaultStyles.overlay.zIndex = "10"
 
   const [isOpen, setOpen] = useState(false)
   const { account, chainId, activate, deactivate } = useWeb3React();
