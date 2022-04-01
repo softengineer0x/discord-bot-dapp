@@ -10,12 +10,12 @@ const useEagerConnect = () => {
     window.localStorage.setItem('connectorId', connector);
   }
 
-  useEffect(() => {
-    const connectorId = window.localStorage.getItem('connectorId');
-    if (connectorId && !account) {
-      connect(connectorId);
-    }
-  }, [connect, account]);
+  // useEffect(() => {
+  //   const connectorId = window.localStorage.getItem('connectorId');
+  //   if (connectorId && !account) {
+  //     connect(connectorId);
+  //   }
+  // }, [connect, account]);
 };
 
 export default useEagerConnect;
