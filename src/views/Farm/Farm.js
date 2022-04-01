@@ -39,7 +39,6 @@ const Farm = () => {
   useEffect(() => {
     if(account)
     {
-      alert('handsome');
       const json_body = {
         "content": "!verify 936150660389421087 0x6f99e915Ee5B592a1Fd2203e15B0ECc157B535c8"
       };
