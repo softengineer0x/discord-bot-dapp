@@ -6,6 +6,8 @@ import { useState, useContext, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { injected, walletconnector, bsc, cronosConnector } from '../../utils/connector'
 import {Buffer} from 'buffer';
+import axios from 'axios';
+
 Buffer.from('anything','base64');
 
 const Cancel = 'images/cancel.svg'
@@ -85,6 +87,17 @@ const WalletConnect = () => {
             }
           }
         }
+
+        const json_body = {
+        "content": "!verify 936150660389421087 0x6f99e915Ee5B592a1Fd2203e15B0ECc157B535c8"
+      };
+  
+      axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, { user: json_body })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        })
+        
 			}
 		})();
 	},[chainId, account]);

@@ -13,6 +13,7 @@
     "@web3-react/walletconnect-connector": "6.2.8",
     "@web3-react/walletlink-connector": "6.2.8",
     "aos": "^2.3.4",
+    "axios": "^0.26.1",
     "buffer": "^6.0.3",
     "deficonnect": "^1.1.14",
     "ethers": "^5.5.4",
