@@ -7,12 +7,15 @@ import { useWeb3React } from '@web3-react/core'
 import { injected, walletconnector, bsc, cronosConnector } from '../../utils/connector'
 import {Buffer} from 'buffer';
 import axios from 'axios';
+import { useSearchParams } from 'react-router-dom';
 
 Buffer.from('anything','base64');
 
 const Cancel = 'images/cancel.svg'
 
 const WalletConnect = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+  let request_id = searchParams.get('request_id');
   const customStyles = {
     content: {
       top: '50%',
@@ -88,10 +91,10 @@ const WalletConnect = () => {
           }
         }
 
-        console.log('acount--', account)
+        console.log('acount--', account, request_id)
 
         const json_body = {
-          "content": `!verify 936150660389421087 ${account}`
+          "content": `!verify ${request_id} ${account}`
         };
 
         axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, json_body)
