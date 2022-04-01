@@ -7,12 +7,12 @@ import getLibrary from './utils/getLibrary'
 import WalletConnect from "./components/wallet/walletconnect";
 
 render(
-  <React.StrictMode>
     <Web3ReactProvider getLibrary={getLibrary}>
-      <App />
-      {/* <WalletConnect/> */}
-    </Web3ReactProvider>
-  </React.StrictMode>,
+      <React.StrictMode>
+          <App />
+          {/* <WalletConnect/> */}
+      </React.StrictMode>
+    </Web3ReactProvider>,
   document.getElementById('root'),
 )
 

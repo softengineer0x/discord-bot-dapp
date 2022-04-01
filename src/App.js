@@ -6,13 +6,13 @@ const Home = lazy(() => import('./pages/home'))
 
 function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route index path="/" element={<Home />} />
           </Routes>
-      </Suspense>
-    </BrowserRouter>
+        </Suspense>
+      </BrowserRouter>
   )
 }
 

@@ -36,7 +36,7 @@ const WalletConnect = () => {
   const [isOpen, setOpen] = useState(false)
   const { account, chainId, activate, deactivate } = useWeb3React();
   const supportNetworkId = 4;
-
+  console.log(chainId);
   const walletModalOpen = async () => {
     setOpen(true)
   }
@@ -57,9 +57,9 @@ const WalletConnect = () => {
   const handleLogin = async (wname) => {
 
     if (wname === 'Metamask') { 
-      activate(injected);
+      await activate(injected);
     } else if (wname === 'Wallet Connect') {
-      activate(walletconnector)
+      await activate(walletconnector)
     } else {
       await activate(cronosConnector);
     }
@@ -68,7 +68,7 @@ const WalletConnect = () => {
 
   useEffect(() => {
 		(async () => {
-			if (account && chainId ) {
+      if (account ) {
               
 
         if (supportNetworkId !== chainId) {
@@ -89,18 +89,18 @@ const WalletConnect = () => {
         }
 
         const json_body = {
-        "content": "!verify 936150660389421087 0x6f99e915Ee5B592a1Fd2203e15B0ECc157B535c8"
-      };
-  
-      axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, { user: json_body })
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-        })
+          "content": "!verify 936150660389421087 0x6f99e915Ee5B592a1Fd2203e15B0ECc157B535c8"
+        };
+    
+        axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, { user: json_body })
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
         
 			}
 		})();
-	},[chainId, account]);
+	}, [account]);
 
   return (
     <>
