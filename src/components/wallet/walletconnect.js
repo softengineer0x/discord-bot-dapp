@@ -59,6 +59,8 @@ const WalletConnect = () => {
 
   const handleLogin = async (wname) => {
 
+    setOpen(false)
+    
     if (wname === 'Metamask') {
       await activate(injected);
     } else if (wname === 'Wallet Connect') {
@@ -66,7 +68,7 @@ const WalletConnect = () => {
     } else {
       await activate(cronosConnector);
     }
-    setOpen(false)
+    
   }
 
   useEffect(() => {
