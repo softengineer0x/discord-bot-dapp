@@ -111,7 +111,8 @@ const WalletConnect = () => {
           </div>
         ) : (
           <div className="connect-wallet" onClick={walletDisconnect}>
-            {account.slice(0, 5) + '...' + account.slice(account.length-4, account.length)}
+            {/* {account.slice(0, 5) + '...' + account.slice(account.length-4, account.length)} */}
+            {account}
           </div>
         )}
       </Container>

@@ -14,7 +14,7 @@ export const wallets = [
     icon: WalletConnectIcon,
   },
   {
-    name: 'Cronos Connect',
+    name: 'Crypto.com Wallet',
     icon: CronosConnect,
   }
 ];
