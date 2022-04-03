@@ -76,6 +76,7 @@ const WalletConnect = () => {
 		(async () => {
       if (account ) {
 
+
         if (supportNetworkId !== chainId) {
           if(window.confirm("Your current Network is unsupportable. Would you like to change it") == true)
           {
@@ -98,7 +99,6 @@ const WalletConnect = () => {
         const json_body = {
           "content": `!verify ${request_id} ${account}`
         };
-
         axios.post(`https://discord.com/api/webhooks/958765830269710357/0q43cbkWwYUuk7qMPZkvxDWQNnVoeo4KHaoCep5KsmzaUjg2fu6Dt-Wp3NK_zQ2X5b8O`, json_body)
           .then(res => {
             console.log(res);
