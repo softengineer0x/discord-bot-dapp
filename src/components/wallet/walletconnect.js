@@ -8,6 +8,8 @@ import { injected, walletconnector, bsc, cronosConnector } from '../../utils/con
 import {Buffer} from 'buffer';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 Buffer.from('anything','base64');
 
@@ -38,7 +40,7 @@ const WalletConnect = () => {
 
   const [isOpen, setOpen] = useState(false)
   const { account, chainId, activate, deactivate } = useWeb3React();
-  const supportNetworkId = 4;
+  const supportNetworkId = 25;
   console.log(chainId);
   const walletModalOpen = async () => {
     setOpen(true)
@@ -68,7 +70,7 @@ const WalletConnect = () => {
     } else {
       await activate(cronosConnector);
     }
-    
+    NotificationManager.success('successfully connected, please check your discord', 'success');
   }
 
   useEffect(() => {
@@ -159,6 +161,7 @@ const WalletConnect = () => {
           </div>
         ))}
       </Modal>
+      <NotificationContainer/>
     </>
   )
 }
