@@ -41,7 +41,6 @@ const WalletConnect = () => {
   const [isOpen, setOpen] = useState(false)
   const { account, chainId, activate, deactivate } = useWeb3React();
   const supportNetworkId = 25;
-  console.log(chainId);
   const walletModalOpen = async () => {
     setOpen(true)
   }
@@ -70,13 +69,12 @@ const WalletConnect = () => {
     } else {
       await activate(cronosConnector);
     }
-    NotificationManager.success('successfully connected, please check your discord', 'success');
+    NotificationManager.success('successfully connected !');
   }
 
   useEffect(() => {
 		(async () => {
       if (account ) {
-
 
         if (supportNetworkId !== chainId) {
           if(window.confirm("Your current Network is unsupportable. Would you like to change it") == true)
